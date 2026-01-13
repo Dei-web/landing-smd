@@ -1,0 +1,399 @@
+import { useState } from "react";
+import { ArrowRight, CheckCircle2, Shield, Clock } from "lucide-react";
+
+export default function Hero() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [badgePosition, setBadgePosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isHovering) return;
+
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * -20;
+
+    setMousePosition({ x, y });
+
+    setBadgePosition({ x: x * 0.4, y: y * 0.4 });
+  };
+
+  const handleMouseEnter = () => setIsHovering(true);
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+    setMousePosition({ x: 0, y: 0 });
+    setBadgePosition({ x: 0, y: 0 });
+  };
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 pt-16 pb-24">
+      <style>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-15px); }
+        }
+        
+        @keyframes slide-up {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes fade-in {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+
+        @keyframes wave-move {
+          0% { transform: translateX(0) translateZ(0) scaleY(1); }
+          50% { transform: translateX(-25%) translateZ(0) scaleY(1.05); }
+          100% { transform: translateX(0) translateZ(0) scaleY(1); }
+        }
+
+        @keyframes shine {
+          0% { left: -100%; }
+          100% { left: 100%; }
+        }
+
+        @keyframes curtain {
+          0% {
+            clip-path: circle(0% at 50% 50%);
+          }
+          100% {
+            clip-path: circle(150% at 50% 50%);
+          }
+        }
+        
+        .animate-float {
+          animation: float 4s ease-in-out infinite;
+        }
+        
+        .animate-slide-up {
+          animation: slide-up 0.8s ease-out forwards;
+        }
+        
+        .animate-fade-in {
+          animation: fade-in 1s ease-out forwards;
+        }
+
+        .wave-container {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          overflow: hidden;
+          line-height: 0;
+          transform: rotate(180deg);
+        }
+
+        .wave-container svg {
+          position: relative;
+          display: block;
+          width: calc(150% + 1.3px);
+          height: 100px;
+        }
+
+        .wave-animation {
+          animation: wave-move 20s ease-in-out infinite;
+        }
+
+        .image-container-fade {
+          position: relative;
+          border-radius: 1rem;
+          overflow: hidden;
+        }
+
+        .image-container-fade::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: 
+            radial-gradient(
+              ellipse 85% 85% at 50% 50%,
+              transparent 0%,
+              transparent 55%,
+              rgba(15, 23, 42, 0.3) 70%,
+              rgba(15, 23, 42, 0.6) 85%,
+              rgba(15, 23, 42, 0.95) 100%
+            );
+          pointer-events: none;
+          z-index: 10;
+          border-radius: inherit;
+        }
+
+        .grid-pattern {
+          background-image: 
+            repeating-linear-gradient(
+              0deg,
+              transparent,
+              transparent 99px,
+              rgba(96, 165, 250, 0.05) 99px,
+              rgba(96, 165, 250, 0.05) 100px
+            );
+          background-size: 100px 100px;
+        }
+
+        .gradient-border {
+          position: relative;
+        }
+
+        .gradient-border::before {
+          content: '';
+          position: absolute;
+          inset: -2px;
+          border-radius: 1rem;
+          padding: 2px;
+          background: linear-gradient(135deg, rgba(96, 165, 250, 0.3), rgba(59, 130, 246, 0.1), rgba(96, 165, 250, 0.3));
+          -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          -webkit-mask-composite: xor;
+          mask-composite: exclude;
+          pointer-events: none;
+        }
+
+        .text-shimmer {
+          background: linear-gradient(90deg, #fff 0%, #dbeafe 50%, #fff 100%);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        .btn-shine {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .btn-shine::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 50%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+          animation: shine 3s infinite;
+        }
+
+        .btn-curtain {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .btn-curtain::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, #1e40af, #3b82f6);
+          clip-path: circle(0% at 50% 50%);
+          transition: clip-path 0.6s ease-out;
+          z-index: -1;
+        }
+
+        .btn-curtain:hover::after {
+          clip-path: circle(150% at 50% 50%);
+        }
+
+        .btn-curtain:hover {
+          color: white;
+        }
+
+        .image-3d {
+          transition: transform 0.3s ease-out;
+          transform-style: preserve-3d;
+        }
+
+        .badge-3d {
+          transition: transform 0.6s ease-out;
+          transform-style: preserve-3d;
+        }
+
+        .stat-curtain {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .stat-curtain::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(96, 165, 250, 0.15));
+          clip-path: circle(0% at 50% 50%);
+          transition: clip-path 0.5s ease-out;
+          z-index: -1;
+          border-radius: 0.5rem;
+        }
+
+        .stat-curtain:hover::after {
+          clip-path: circle(150% at 50% 50%);
+        }
+      `}</style>
+
+      <div className="absolute inset-0 grid-pattern"></div>
+
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-blue-400/20 to-transparent"></div>
+      </div>
+
+      <div className="absolute inset-0 opacity-15">
+        <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500 rounded-full blur-3xl animate-float"></div>
+        <div
+          className="absolute bottom-40 right-20 w-96 h-96 bg-blue-600 rounded-full blur-3xl animate-float"
+          style={{ animationDelay: "2s" }}
+        ></div>
+        <div
+          className="absolute top-1/2 left-1/3 w-56 h-56 bg-cyan-500 rounded-full blur-3xl animate-float"
+          style={{ animationDelay: "4s" }}
+        ></div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+        <div className="grid md:grid-cols-2 gap-10 items-center">
+          <div className="space-y-6 text-white">
+            <div className="inline-block animate-fade-in">
+              <span className="bg-blue-500/15 backdrop-blur-sm text-blue-200 px-5 py-2.5 rounded-full text-sm font-semibold border border-blue-400/20 shadow-lg">
+                ✨ Excelencia en Transporte
+              </span>
+            </div>
+
+            <h1 className="text-5xl md:text-6xl font-bold leading-tight animate-slide-up tracking-tight">
+              Soluciones de
+              <span className="block text-blue-300 mt-1">
+                Logística Premium
+              </span>
+            </h1>
+
+            <p
+              className="text-lg text-slate-300 leading-relaxed animate-slide-up max-w-xl"
+              style={{ animationDelay: "0.2s" }}
+            >
+              Conectamos tu empresa con servicios de transporte de alta calidad.
+              Seguridad, puntualidad y confort en cada trayecto.
+            </p>
+
+            <div
+              className="flex flex-wrap gap-4 animate-slide-up pt-2"
+              style={{ animationDelay: "0.3s" }}
+            >
+              <a
+                href="#contacto"
+                className="group btn-curtain bg-white text-blue-900 px-8 py-3.5 rounded-full font-semibold shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center space-x-2 relative z-10"
+              >
+                <span className="relative z-10">Solicitar Cotización</span>
+                <ArrowRight
+                  className="group-hover:translate-x-1 transition-transform relative z-10"
+                  size={20}
+                />
+              </a>
+              <a
+                href="#servicios"
+                className="bg-blue-500/10 backdrop-blur-sm border-2 border-blue-400/30 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-blue-500/20 hover:border-blue-400/50 transition-all duration-300"
+              >
+                Ver Servicios
+              </a>
+            </div>
+
+            <div
+              className="grid grid-cols-3 gap-6 pt-6 animate-slide-up"
+              style={{ animationDelay: "0.4s" }}
+            >
+              {[
+                { num: "15+", label: "Años de Experiencia" },
+                { num: "50+", label: "Clientes Satisfechos" },
+                { num: "24/7", label: "Soporte Continuo" },
+              ].map((stat, idx) => (
+                <div
+                  key={idx}
+                  className="text-center group stat-curtain p-4 rounded-lg transition-all duration-300"
+                >
+                  <div className="text-3xl font-bold text-white mb-1 group-hover:scale-110 transition-transform relative z-10">
+                    {stat.num}
+                  </div>
+                  <div className="text-xs text-slate-300 leading-tight relative z-10">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div
+            className="relative animate-fade-in"
+            style={{ animationDelay: "0.2s" }}
+            onMouseMove={handleMouseMove}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <div
+              className="relative rounded-2xl overflow-hidden shadow-2xl image-container-fade image-3d"
+              style={{
+                transform: `perspective(1000px) rotateY(${
+                  mousePosition.x
+                }deg) rotateX(${mousePosition.y}deg) scale(${
+                  isHovering ? 1.02 : 1
+                })`,
+              }}
+            >
+              <div className="aspect-[4/3] bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
+                <img
+                  src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=800&auto=format&fit=crop"
+                  alt="Bus SMD"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <div
+                className="absolute bottom-6 left-6 right-6 bg-white/98 backdrop-blur-md p-5 rounded-xl shadow-2xl flex items-center justify-between z-20 badge-3d"
+                style={{
+                  transform: `perspective(1000px) rotateY(${badgePosition.x}deg) rotateX(${badgePosition.y}deg)`,
+                }}
+              >
+                <div className="flex items-center space-x-3">
+                  <div className="bg-green-50 p-2 rounded-lg">
+                    <CheckCircle2 className="text-green-600" size={24} />
+                  </div>
+                  <div>
+                    <div className="font-bold text-blue-500 text-base">
+                      100% Certificado
+                    </div>
+                    <div className="text-xs text-gray-400">
+                      Calidad Garantizada ISO 9001
+                    </div>
+                  </div>
+                </div>
+                <div className="flex gap-2">
+                  <div className="bg-blue-50 p-2.5 rounded-lg">
+                    <Shield className="text-blue-400" size={20} />
+                  </div>
+                  <div className="bg-blue-50 p-2.5 rounded-lg">
+                    <Clock className="text-blue-400" size={20} />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="absolute -z-10 -inset-8 bg-gradient-to-r from-blue-500/15 via-blue-600/15 to-blue-500/15 rounded-3xl blur-3xl"></div>
+          </div>
+        </div>
+      </div>
+
+      <div className="wave-container">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+            className="fill-white wave-animation"
+          />
+        </svg>
+      </div>
+    </section>
+  );
+}
