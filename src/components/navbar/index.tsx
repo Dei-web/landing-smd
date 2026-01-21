@@ -1,10 +1,13 @@
 import { Menu, X } from "lucide-react";
 import logo from "../../assets/logo.png";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,36 +32,65 @@ export default function Navbar() {
     };
   }, [isMenuOpen]);
 
-  // Función para scroll suave
+  // Scroll al elemento cuando cambia la URL
+  useEffect(() => {
+    if (location.hash) {
+      // Pequeño delay para asegurar que el DOM esté listo
+      setTimeout(() => {
+        const targetElement = document.querySelector(location.hash);
+        if (targetElement) {
+          const navHeight = 100;
+          const targetPosition =
+            targetElement.getBoundingClientRect().top +
+            window.pageYOffset -
+            navHeight;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 100);
+    } else if (location.pathname === "/") {
+      // Si estamos en home sin hash, scroll al top
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [location]);
+
   // Función para scroll suave mejorada
   const handleSmoothScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    targetId: string
+    targetId: string,
   ) => {
     e.preventDefault();
     setIsMenuOpen(false);
 
-    // Pequeño delay para que el menú se cierre primero
-    setTimeout(() => {
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        const navHeight = 100; // Ajusta este valor según la altura real de tu navbar
-        const targetPosition =
-          targetElement.getBoundingClientRect().top +
-          window.pageYOffset -
-          navHeight;
+    // Si estamos en una página diferente a home, navegar primero
+    if (location.pathname !== "/") {
+      navigate(`/${targetId}`);
+    } else {
+      // Si ya estamos en home, hacer scroll directamente
+      setTimeout(() => {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          const navHeight = 100;
+          const targetPosition =
+            targetElement.getBoundingClientRect().top +
+            window.pageYOffset -
+            navHeight;
 
-        window.scrollTo({
-          top: targetPosition,
-          behavior: "smooth",
-        });
-      }
-    }, 100);
+          window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 100);
+    }
   };
 
   const handleLinkClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
+    href: string,
   ) => {
     handleSmoothScroll(e, href);
   };
@@ -148,6 +180,10 @@ export default function Navbar() {
 
         .mobile-menu.open .menu-item:nth-child(4) {
           animation-delay: 0.2s;
+        }
+
+        .mobile-menu.open .menu-item:nth-child(5) {
+          animation-delay: 0.25s;
         }
 
         .mobile-menu-overlay {
@@ -306,7 +342,10 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
-            <div className="flex items-center space-x-3 animate-fade-in">
+            <Link
+              to="/"
+              className="flex items-center space-x-3 animate-fade-in"
+            >
               <img
                 className="w-14 h-16 sm:w-16 sm:h-20"
                 alt="Page logo"
@@ -328,12 +367,12 @@ export default function Navbar() {
                   Transport Solutions
                 </p>
               </div>
-            </div>
+            </Link>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
-              <a
-                href="#servicios"
+              <Link
+                to="/#servicios"
                 onClick={(e) => handleLinkClick(e, "#servicios")}
                 className={`nav-link font-medium pb-1 transition-colors duration-300 ${
                   isScrolled
@@ -342,9 +381,19 @@ export default function Navbar() {
                 }`}
               >
                 Servicios
-              </a>
-              <a
-                href="#nosotros"
+              </Link>
+              <Link
+                to="/taller"
+                className={`nav-link font-medium pb-1 transition-colors duration-300 ${
+                  isScrolled
+                    ? "text-gray-700 hover:text-gray-900"
+                    : "text-white hover:text-blue-200"
+                }`}
+              >
+                Servicio de taller
+              </Link>
+              <Link
+                to="/#nosotros"
                 onClick={(e) => handleLinkClick(e, "#nosotros")}
                 className={`nav-link font-medium pb-1 transition-colors duration-300 ${
                   isScrolled
@@ -353,9 +402,9 @@ export default function Navbar() {
                 }`}
               >
                 Nosotros
-              </a>
-              <a
-                href="#galeria"
+              </Link>
+              <Link
+                to="/#galeria"
                 onClick={(e) => handleLinkClick(e, "#galeria")}
                 className={`nav-link font-medium pb-1 transition-colors duration-300 ${
                   isScrolled
@@ -363,10 +412,10 @@ export default function Navbar() {
                     : "text-white hover:text-blue-200"
                 }`}
               >
-                Galería
-              </a>
-              <a
-                href="#contacto"
+                Galeria
+              </Link>
+              <Link
+                to="/#contacto"
                 onClick={(e) => handleLinkClick(e, "#contacto")}
                 className="curtain-btn-desktop px-6 py-3 rounded-full group/linkContact font-semibold transition-all duration-300 hover:shadow-xl text-white relative"
               >
@@ -379,7 +428,7 @@ export default function Navbar() {
                 >
                   Contacto
                 </span>
-              </a>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -410,22 +459,29 @@ export default function Navbar() {
                 { href: "#nosotros", label: "Nosotros" },
                 { href: "#galeria", label: "Galería" },
               ].map((item, idx) => (
-                <a
+                <Link
                   key={idx}
-                  href={item.href}
+                  to={`/${item.href}`}
                   onClick={(e) => handleLinkClick(e, item.href)}
                   className="menu-item mobile-nav-link text-gray-700 hover:text-blue-600 hover:bg-blue-50 active:bg-blue-100 font-medium transition-all duration-200"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
-              <a
-                href="#contacto"
+              <Link
+                to="/taller"
+                onClick={() => setIsMenuOpen(false)}
+                className="menu-item mobile-nav-link text-gray-700 hover:text-blue-600 hover:bg-blue-50 active:bg-blue-100 font-medium transition-all duration-200"
+              >
+                Servicio de taller
+              </Link>
+              <Link
+                to="/#contacto"
                 onClick={(e) => handleLinkClick(e, "#contacto")}
                 className="menu-item mobile-contact-btn curtain-btn-mobile block bg-blue-600 rounded-full text-center font-semibold transition-all duration-300 text-white relative"
               >
                 <span className="relative z-10">Contacto</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

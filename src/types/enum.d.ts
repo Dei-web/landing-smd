@@ -1,3 +1,10 @@
-declare type VehicleType = "bus" | "van" | "microbus" | "bus turismo" | "sprinter" | "bus premium";
+declare type VehicleType = "Camioneta Combinada" | "Camioneta DC" | "Campera" | "Van" | "Microbus" | "Buseta" | "Bus";
 
-declare type VehicleCategory = "transporte empresarial" | "transporte ejecutivo" | "transporte escolar" | "transporte turismo" | "logistica de eventos" | "transporte corporativo";
+declare type VehicleCategory = "ejecutivo" | "mediano" | "grande";
+
+declare type ServiceRequire = "transporte empresarial" |
+    "transporte ejecutivo" |
+    "transporte escolar" |
+    "transporte turismo" |
+    "logistica de eventos" |
+    "transporte corporativo";

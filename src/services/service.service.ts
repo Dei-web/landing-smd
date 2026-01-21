@@ -23,13 +23,12 @@ export default async function fetchService(): Promise<Service[]> {
             description: "Servicio seguro y confiable para estudiantes, directivos y padres de familia.",
             features: ["Personal capacitado", "Flota moderna", "Seguridad certificada"],
             image: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=800&auto=format&fit=crop",
-        },
-        {
+        }, {
             icon: HeartPulse,
-            title: "Atención Médica Integral",
-            description: "Servicios de salud diseñados para brindar atención oportuna, segura y humanizada.",
-            features: ["Personal médico certificado", "Protocolos de bioseguridad", "Atención personalizada"],
-            image: "https://images.unsplash.com/photo-1580281657527-47f249e8f6b8?w=800&auto=format&fit=crop",
+            title: "Transporte Médico y de Salud",
+            description: "Movilización especializada para personal médico, pacientes y jornadas de salud con seguridad.",
+            features: ["Vehículos adaptados", "Protocolos sanitarios", "Asistencia especializada"],
+            image: "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=800&auto=format&fit=crop",
         },
         {
             icon: Truck,
@@ -46,6 +45,6 @@ export default async function fetchService(): Promise<Service[]> {
             image: "https://images.unsplash.com/photo-1527786356703-4b100091cd2c?w=800&auto=format&fit=crop",
         },
     ];
-    
+
     return services;
 }

@@ -10,7 +10,7 @@ import SelectedLocationInfo from "./SelectedLocationInfo";
 import { MapContext } from "../../context/map/MapContext";
 import type { MapLocation } from "../../types/map.types";
 
-export default function MapUbication() {
+export default function MapUbication({ changeBackground = false }) {
   const [showLocations, setShowLocations] = useState(false);
   const [showDestinationSelector, setShowDestinationSelector] = useState(false);
   const [showRoutePanel, setShowRoutePanel] = useState(true);
@@ -62,7 +62,7 @@ export default function MapUbication() {
       userLocation.lng,
       location,
       setSelected,
-      calculateRealDistance
+      calculateRealDistance,
     );
 
     if (control) {
@@ -120,7 +120,7 @@ export default function MapUbication() {
         "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
         {
           attribution: "<a>Ubicación directa</a>",
-        }
+        },
       ).addTo(mapInstance);
 
       setMap(mapInstance);
@@ -145,7 +145,7 @@ export default function MapUbication() {
       // Ajustar vista
       if (locations.length > 1) {
         const bounds = LeafletLib.latLngBounds(
-          locations.map((loc) => [loc.lat, loc.lng])
+          locations.map((loc) => [loc.lat, loc.lng]),
         );
         mapInstance.fitBounds(bounds, { padding: [50, 50] });
       }
@@ -204,7 +204,7 @@ export default function MapUbication() {
                   lng,
                   nearestLocation,
                   setSelected,
-                  calculateRealDistance
+                  calculateRealDistance,
                 );
 
                 if (control) {
@@ -216,7 +216,7 @@ export default function MapUbication() {
               },
               () => {
                 alert("No se pudo obtener tu ubicación");
-              }
+              },
             );
           } else {
             alert("Tu navegador no soporta geolocalización.");
@@ -236,7 +236,7 @@ export default function MapUbication() {
   }, [locations]);
 
   return (
-    <section className="bg-slate-200 py-40">
+    <section className={`bg-${changeBackground ? 'white' : 'slate-200'} py-40`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-gray-800 mb-2">

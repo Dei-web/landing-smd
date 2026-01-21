@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, CheckCircle2, Shield, Clock } from "lucide-react";
+import { CheckCircle2, Wrench, Clock } from "lucide-react";
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -60,13 +60,9 @@ export default function Hero() {
           100% { left: 100%; }
         }
 
-        @keyframes curtain {
-          0% {
-            clip-path: circle(0% at 50% 50%);
-          }
-          100% {
-            clip-path: circle(150% at 50% 50%);
-          }
+        @keyframes gear-rotate {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
         }
         
         .animate-float {
@@ -79,6 +75,10 @@ export default function Hero() {
         
         .animate-fade-in {
           animation: fade-in 1s ease-out forwards;
+        }
+
+        .animate-gear {
+          animation: gear-rotate 20s linear infinite;
         }
 
         .wave-container {
@@ -251,19 +251,31 @@ export default function Hero() {
         ></div>
       </div>
 
+      {/* Decorative gears */}
+      <div className="absolute top-20 right-10 opacity-5">
+        <Wrench size={120} className="text-blue-300 animate-gear" />
+      </div>
+      <div className="absolute bottom-32 left-10 opacity-5">
+        <Wrench
+          size={80}
+          className="text-blue-400 animate-gear"
+          style={{ animationDirection: "reverse", animationDuration: "15s" }}
+        />
+      </div>
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="space-y-6 text-white">
             <div className="inline-block animate-fade-in">
               <span className="bg-blue-500/15 backdrop-blur-sm text-blue-200 px-5 py-2.5 rounded-full text-sm font-semibold border border-blue-400/20 shadow-lg">
-                ✨ Excelencia en Transporte
+                🔧 Servicio Profesional de Taller
               </span>
             </div>
 
             <h1 className="text-5xl md:text-6xl font-bold leading-tight animate-slide-up tracking-tight">
-              Soluciones de
+              Mantenimiento y
               <span className="block text-blue-300 mt-1">
-                Logística Premium
+                Reparación Experta
               </span>
             </h1>
 
@@ -271,8 +283,9 @@ export default function Hero() {
               className="text-lg text-slate-300 leading-relaxed animate-slide-up max-w-xl"
               style={{ animationDelay: "0.2s" }}
             >
-              Conectamos tu empresa con servicios de transporte de alta calidad.
-              Seguridad, puntualidad y confort en cada trayecto.
+              Taller especializado con tecnología de punta. Diagnóstico preciso,
+              reparaciones garantizadas y mantenimiento preventivo para mantener
+              tu vehículo en óptimas condiciones.
             </p>
 
             <div
@@ -280,20 +293,10 @@ export default function Hero() {
               style={{ animationDelay: "0.3s" }}
             >
               <a
-                href="#contacto"
-                className="group btn-curtain bg-white text-blue-900 px-8 py-3.5 rounded-full font-semibold shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center space-x-2 relative z-10"
-              >
-                <span className="relative z-10">Solicitar Cotización</span>
-                <ArrowRight
-                  className="group-hover:translate-x-1 transition-transform relative z-10"
-                  size={20}
-                />
-              </a>
-              <a
-                href="#servicios"
+                href="#serviciosTaller"
                 className="bg-blue-500/10 backdrop-blur-sm border-2 border-blue-400/30 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-blue-500/20 hover:border-blue-400/50 transition-all duration-300"
               >
-                Ver Servicios
+                Nuestros Servicios
               </a>
             </div>
           </div>
@@ -317,8 +320,8 @@ export default function Hero() {
             >
               <div className="aspect-[4/3] bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
                 <img
-                  src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=800&auto=format&fit=crop"
-                  alt="Bus SMD"
+                  src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&auto=format&fit=crop"
+                  alt="Taller Mecánico"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -334,17 +337,17 @@ export default function Hero() {
                     <CheckCircle2 className="text-green-600" size={24} />
                   </div>
                   <div>
-                    <div className="font-bold text-blue-500 text-base">
-                      Calidad a tu alcance
+                    <div className="font-bold text-blue-600 text-base">
+                      Servicios garantizados
                     </div>
                     <div className="text-xs text-gray-400">
-                      Calidad Garantizada ISO 9001
+                      Técnicos Especializados
                     </div>
                   </div>
                 </div>
                 <div className="flex gap-2">
                   <div className="bg-blue-50 p-2.5 rounded-lg">
-                    <Shield className="text-blue-400" size={20} />
+                    <Wrench className="text-blue-500" size={20} />
                   </div>
                   <div className="bg-blue-50 p-2.5 rounded-lg">
                     <Clock className="text-blue-400" size={20} />

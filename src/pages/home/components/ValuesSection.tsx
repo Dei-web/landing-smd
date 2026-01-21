@@ -250,39 +250,6 @@ export default function ValuesSection() {
             );
           })}
         </div>
-
-        {/* Stats Bar */}
-        <div
-          className="mt-12 md:mt-16 pt-8 md:pt-12 border-t border-gray-200 animate-slide-up"
-          style={{ animationDelay: "0.5s" }}
-        >
-          <div className="grid grid-cols-3 gap-4 md:gap-8 text-center">
-            <div>
-              <div className="text-2xl md:text-4xl font-black text-blue-600 mb-1 md:mb-2">
-                15+
-              </div>
-              <div className="text-xs md:text-sm text-gray-600 font-medium">
-                Años de Experiencia
-              </div>
-            </div>
-            <div>
-              <div className="text-2xl md:text-4xl font-black text-blue-600 mb-1 md:mb-2">
-                50+
-              </div>
-              <div className="text-xs md:text-sm text-gray-600 font-medium">
-                Clientes Satisfechos
-              </div>
-            </div>
-            <div>
-              <div className="text-2xl md:text-4xl font-black text-blue-600 mb-1 md:mb-2">
-                100%
-              </div>
-              <div className="text-xs md:text-sm text-gray-600 font-medium">
-                Certificación
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

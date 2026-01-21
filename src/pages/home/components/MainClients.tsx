@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import integralMantenimiento from "../../../assets/integral-de-mantenimiento-seguridad.png";
 import integralesSeguridad from "../../../assets/integrales-de-seguridad.png";
 import inteligenciaUrbana from "../../../assets/inteligencia-urbana.png";
@@ -30,7 +30,8 @@ export default function MainClients() {
 
   const [rotation, setRotation] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [isHovering, setIsHovering] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const isHoveringRef = useRef(false);
 
   const getActiveClientIndex = () => {
     const normalizedRotation = ((rotation % 360) + 360) % 360;
@@ -44,7 +45,7 @@ export default function MainClients() {
       const diff = Math.min(
         Math.abs(normalizedRotation - clientAngle),
         Math.abs(normalizedRotation - clientAngle + 360),
-        Math.abs(normalizedRotation - clientAngle - 360)
+        Math.abs(normalizedRotation - clientAngle - 360),
       );
 
       if (diff < minDiff) {
@@ -57,20 +58,59 @@ export default function MainClients() {
   };
 
   useEffect(() => {
-    if (!isPlaying || isHovering) return;
+    if (!isPlaying) return;
 
     const interval = setInterval(() => {
-      setRotation((prev) => prev + 0.5); // ⬅️ Aumentado de 0.2 a 0.5 (2.5x más rápido)
+      if (!isHoveringRef.current) {
+        setRotation((prev) => prev - 0.2);
+      }
     }, 30);
 
     return () => clearInterval(interval);
-  }, [isPlaying, isHovering]);
+  }, [isPlaying]);
 
   const handleRotate = (direction: "left" | "right") => {
     setIsPlaying(false);
+    setIsTransitioning(true);
     const angle = 360 / clients.length;
     setRotation((prev) => prev + (direction === "left" ? -angle : angle));
-    setTimeout(() => setIsPlaying(true), 2000);
+    setTimeout(() => {
+      setIsTransitioning(false);
+      setIsPlaying(true);
+    }, 2000);
+  };
+
+  const handleMouseEnter = () => {
+    isHoveringRef.current = true;
+  };
+
+  const handleMouseLeave = () => {
+    isHoveringRef.current = false;
+  };
+
+  const handleClientClick = (index: number) => {
+    setIsPlaying(false);
+    setIsTransitioning(true);
+    const anglePerClient = 360 / clients.length;
+    const targetAngle = anglePerClient * index;
+
+    const currentNormalized = ((rotation % 360) + 360) % 360;
+    const diff = targetAngle - currentNormalized;
+
+    let leftRotation;
+    if (diff > 0) {
+      leftRotation = rotation - (360 - diff);
+    } else if (diff < 0) {
+      leftRotation = rotation + diff;
+    } else {
+      leftRotation = rotation;
+    }
+
+    setRotation(leftRotation);
+    setTimeout(() => {
+      setIsTransitioning(false);
+      setIsPlaying(true);
+    }, 2000);
   };
 
   return (
@@ -92,8 +132,11 @@ export default function MainClients() {
           width: 100%;
           height: 300px;
           transform-style: preserve-3d;
-          transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
           background: transparent;
+        }
+
+        .carousel-container.transitioning {
+          transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .carousel-item {
@@ -108,6 +151,7 @@ export default function MainClients() {
           transition: all 0.5s ease;
           background: transparent;
           border: none;
+          cursor: pointer;
         }
 
         .carousel-card {
@@ -251,7 +295,7 @@ export default function MainClients() {
         {/* 3D Carousel */}
         <div className="carousel-3d">
           <div
-            className="carousel-container"
+            className={`carousel-container ${isTransitioning ? "transitioning" : ""}`}
             style={{
               transform: `rotateY(${rotation}deg)`,
             }}
@@ -268,8 +312,9 @@ export default function MainClients() {
                   style={{
                     transform: `rotateY(${angle}deg) translateZ(280px)`,
                   }}
-                  onMouseEnter={() => setIsHovering(true)}
-                  onMouseLeave={() => setIsHovering(false)}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onClick={() => handleClientClick(index)}
                 >
                   <div className="carousel-card">
                     <div className="logo-container">
@@ -289,7 +334,7 @@ export default function MainClients() {
           {/* Navigation Buttons */}
           <button
             className="nav-button left"
-            onClick={() => handleRotate("left")}
+            onClick={() => handleRotate("right")}
             aria-label="Anterior"
           >
             <svg
@@ -308,7 +353,7 @@ export default function MainClients() {
 
           <button
             className="nav-button right"
-            onClick={() => handleRotate("right")}
+            onClick={() => handleRotate("left")}
             aria-label="Siguiente"
           >
             <svg
@@ -328,19 +373,15 @@ export default function MainClients() {
 
         {/* Progress Indicator */}
         <div className="flex justify-center items-center gap-3 mt-10 mb-8">
-          {clients.map((client, index) => {
+          {[...clients].reverse().map((client, reverseIndex) => {
+            const index = clients.length - 1 - reverseIndex;
             const activeIndex = getActiveClientIndex();
             const isActive = index === activeIndex;
 
             return (
               <button
-                key={index}
-                onClick={() => {
-                  setIsPlaying(false);
-                  const angle = (360 / clients.length) * index;
-                  setRotation(angle);
-                  setTimeout(() => setIsPlaying(true), 2000);
-                }}
+                key={client.id}
+                onClick={() => handleClientClick(index)}
                 className={`group relative transition-all duration-300 ${
                   isActive ? "w-12" : "w-3"
                 }`}
@@ -354,14 +395,6 @@ export default function MainClients() {
                       : "bg-slate-200 hover:bg-slate-300"
                   }`}
                 />
-
-                {/* Tooltip on hover */}
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
-                  <div className="bg-slate-900 text-white text-xs font-semibold px-3 py-2 rounded-lg whitespace-nowrap shadow-xl">
-                    {client.name}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-slate-900" />
-                  </div>
-                </div>
               </button>
             );
           })}
