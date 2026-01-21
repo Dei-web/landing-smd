@@ -2,7 +2,7 @@ declare type VehicleType = "Camioneta Combinada" | "Camioneta DC" | "Campera" | 
 
 declare type VehicleCategory = "ejecutivo" | "mediano" | "grande";
 
-declare type ServiceRequire = "transporte empresarial" |
+declare type ServiceRequire = "otro" | "transporte empresarial" |
     "transporte ejecutivo" |
     "transporte escolar" |
     "transporte turismo" |

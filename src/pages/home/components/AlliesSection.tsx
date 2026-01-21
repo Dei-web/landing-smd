@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
 export default function AlliesSection() {
@@ -79,7 +80,7 @@ export default function AlliesSection() {
             spaceAbove,
             spaceBelow,
             spaceLeft,
-            spaceRight
+            spaceRight,
           );
           if (maxSpace === spaceBelow) position = "bottom";
           else if (maxSpace === spaceAbove) position = "top";
@@ -443,6 +444,87 @@ export default function AlliesSection() {
               rgba(255, 255, 255, 0.1) 22px
             );
         }
+
+        /* Animated Squares */
+@keyframes float-square {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-20px) translateX(10px) rotate(5deg);
+  }
+  66% {
+    transform: translateY(10px) translateX(-10px) rotate(-5deg);
+  }
+}
+
+@keyframes float-square-delayed {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(15px) translateX(-15px) rotate(-8deg);
+  }
+  66% {
+    transform: translateY(-15px) translateX(15px) rotate(8deg);
+  }
+}
+
+@keyframes float-square-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-25px) rotate(10deg) scale(1.1);
+  }
+}
+
+@keyframes rotate-square {
+  0% {
+    transform: rotate(0deg) translateY(0px);
+  }
+  50% {
+    transform: rotate(180deg) translateY(-15px);
+  }
+  100% {
+    transform: rotate(360deg) translateY(0px);
+  }
+}
+
+@keyframes rotate-square-slow {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.15);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.animate-float-square {
+  animation: float-square 8s ease-in-out infinite;
+}
+
+.animate-float-square-delayed {
+  animation: float-square-delayed 10s ease-in-out infinite;
+  animation-delay: -2s;
+}
+
+.animate-float-square-slow {
+  animation: float-square-slow 12s ease-in-out infinite;
+  animation-delay: -4s;
+}
+
+.animate-rotate-square {
+  animation: rotate-square 6s linear infinite;
+}
+
+.animate-rotate-square-slow {
+  animation: rotate-square-slow 15s ease-in-out infinite;
+  animation-delay: -3s;
+}
       `}</style>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
@@ -652,10 +734,8 @@ export default function AlliesSection() {
         <div className="relative rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden">
           {/* Animated gradient background */}
           <div className="absolute inset-0 animated-gradient" />
-
           {/* Animated tilted squares pattern */}
           <div className="absolute inset-0 tilted-squares-pattern animated-pattern opacity-30" />
-
           {/* Floating circles */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div
@@ -671,35 +751,38 @@ export default function AlliesSection() {
               style={{ animationDuration: "5s", animationDelay: "2s" }}
             />
           </div>
+          {/* CTA Section */}
+          <div className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 rounded-2xl md:rounded-3xl p-12 md:p-16 text-center shadow-2xl relative overflow-hidden">
+            {/* Animated Squares Background */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div className="absolute top-10 left-10 w-16 h-16 md:w-32 md:h-32 border-2 border-blue-400/20 rounded-lg animate-float-square" />
+              <div className="absolute top-20 right-16 w-12 h-12 md:w-24 md:h-24 border-2 border-blue-300/20 rounded-lg animate-float-square-delayed" />
+              <div className="absolute bottom-16 left-20 w-14 h-14 md:w-28 md:h-28 border-2 border-blue-500/20 rounded-lg animate-float-square-slow" />
+              <div className="absolute bottom-10 right-12 w-10 h-10 md:w-20 md:h-20 border-2 border-blue-400/20 rounded-lg animate-rotate-square" />
+              <div className="absolute top-1/2 left-1/4 w-8 h-8 md:w-16 md:h-16 border-2 border-blue-300/30 rounded-lg animate-float-square" />
+              <div className="absolute top-1/3 right-1/3 w-12 h-12 md:w-24 md:h-24 border-2 border-blue-400/20 rounded-lg animate-rotate-square-slow" />
+            </div>
 
-          {/* Content */}
-          <div className="relative p-8 md:p-10 lg:p-14 text-center">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 md:mb-4">
-              ¿Listo para trabajar con nosotros?
-            </h3>
-            <p className="text-blue-100 text-sm md:text-lg mb-6 md:mb-8 max-w-2xl mx-auto px-2">
-              Únete a las empresas que confían en nuestro respaldo técnico y red
-              de alianzas estratégicas.
-            </p>
-            <a
-              href="#contacto"
-              className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-white text-blue-600 rounded-lg md:rounded-xl font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 text-sm md:text-base"
-            >
-              Contáctanos
-              <svg
-                className="w-4 h-4 md:w-5 md:h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+            {/* Content */}
+            <div className="relative z-10">
+              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                ¿Listo para trabajar con nosotros?
+              </h3>
+              <p className="text-blue-200 text-lg mb-8 max-w-2xl mx-auto">
+                Únete a las empresas que confían en nuestro respaldo técnico y
+                red de alianzas estratégicas.
+              </p>
+              <a
+                href="#contacto"
+                className="cta-button inline-flex items-center gap-3 bg-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg group"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                Contáctanos
+                <ArrowRight
+                  size={20}
+                  className="transition-transform duration-300 group-hover:translate-x-2"
                 />
-              </svg>
-            </a>
+              </a>
+            </div>
           </div>
         </div>
       </div>

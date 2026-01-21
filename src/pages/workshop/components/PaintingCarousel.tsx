@@ -10,7 +10,6 @@ import {
   Palette,
   FileText,
   CheckCircle2,
-  Clock,
   Shield,
   Sparkles,
 } from "lucide-react";
@@ -41,8 +40,6 @@ const PaintingCarousel = () => {
       iconTitle: "Vinilo Premium",
       iconSubtitle: "Acabado profesional y de alta calidad",
       features: [
-        { icon: Shield, title: "Durabilidad", description: "5 años garantía" },
-        { icon: Clock, title: "Instalación", description: "2-3 días hábiles" },
         { icon: Sparkles, title: "Protección UV", description: "Incluida" },
         {
           icon: CheckCircle2,
@@ -69,9 +66,6 @@ const PaintingCarousel = () => {
       iconTitle: "Pintura Premium",
       iconSubtitle: "Acabado profesional",
       features: [
-        { icon: Palette, title: "Catálogo", description: "500+ colores" },
-        { icon: Clock, title: "Tiempo", description: "5-7 días hábiles" },
-        { icon: Shield, title: "Garantía", description: "3 años" },
         { icon: Sparkles, title: "Acabados", description: "Mate/Brillante" },
       ],
     },
@@ -95,7 +89,6 @@ const PaintingCarousel = () => {
       iconSubtitle: "Diseños únicos",
       features: [
         { icon: Sparkles, title: "Diseño", description: "100% único" },
-        { icon: Clock, title: "Tiempo", description: "7-10 días" },
         { icon: Award, title: "Artistas", description: "Certificados" },
         { icon: Shield, title: "Protección", description: "Sellado premium" },
       ],
@@ -119,7 +112,6 @@ const PaintingCarousel = () => {
       iconSubtitle: "Para empresas",
       features: [
         { icon: Palette, title: "Diseño", description: "Corporativo incluido" },
-        { icon: Clock, title: "Instalación", description: "24-48 horas" },
         {
           icon: Sparkles,
           title: "Material",

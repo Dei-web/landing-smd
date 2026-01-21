@@ -11,6 +11,7 @@ import MapUbication from "../../components/map";
 import ValuesSection from "./components/ValuesSection";
 import MainClients from "./components/MainClients";
 import AlliesSection from "./components/AlliesSection";
+import TallerSection from "./components/ServiceWorkshop";
 
 const Home = () => {
   useEffect(() => {
@@ -133,6 +134,10 @@ const Home = () => {
 
       <div className="animate-on-scroll">
         <VehiclesGallery />
+      </div>
+
+      <div className="animate-on-scroll">
+        <TallerSection />
       </div>
 
       <div className="animate-on-scroll">

@@ -242,7 +242,7 @@ export const ContactForm = () => {
         email: formParameters(formData, "email"),
         phoneNumber: formParameters(formData, "numberPhone"),
         interestService: parseServiceVehicle(
-          formParameters(formData, "interestService")
+          formParameters(formData, "interestService"),
         ),
         message: formParameters(formData, "message"),
       };
@@ -268,7 +268,7 @@ export const ContactForm = () => {
         } else {
           showToast(
             "error",
-            errorData.message || "Error al enviar el formulario"
+            errorData.message || "Error al enviar el formulario",
           );
         }
         setIsLoading(false);
@@ -280,7 +280,7 @@ export const ContactForm = () => {
       setIsLoading(false);
       showToast(
         "success",
-        dataResponse.message || "¡Formulario enviado correctamente!"
+        dataResponse.message || "¡Formulario enviado correctamente!",
       );
       target.reset();
       setErrors({});
@@ -294,14 +294,13 @@ export const ContactForm = () => {
     setMessageLength(e.target.value.length);
   };
 
-  const parseServiceVehicle = (
-    value: string | null
-  ): ServiceRequire | null => {
+  const parseServiceVehicle = (value: string | null): ServiceRequire | null => {
     if (!value) return null;
 
     const valueParse = value.toLowerCase();
 
     const category: ServiceRequire[] = [
+      "otro",
       "transporte empresarial",
       "transporte ejecutivo",
       "transporte escolar",
@@ -594,6 +593,7 @@ export const ContactForm = () => {
                       }`}
                     >
                       <option value="">Seleccione un servicio</option>
+                      <option value="Otro">Otro</option>
                       <option value="Logistica de Eventos">
                         Logística de Eventos
                       </option>
@@ -647,13 +647,13 @@ export const ContactForm = () => {
                         hasError("message")
                           ? "border-red-500 error error-shake"
                           : messageLength === 0
-                          ? "border-slate-300"
-                          : messageLength < MIN_MESSAGE_LENGTH
-                          ? "border-amber-400 focus:border-amber-500 focus:shadow-amber"
-                          : messageLength >= MIN_MESSAGE_LENGTH &&
-                            messageLength <= MAX_MESSAGE_LENGTH
-                          ? "border-blue-400 focus:border-blue-500 focus:shadow-blue"
-                          : "border-slate-300"
+                            ? "border-slate-300"
+                            : messageLength < MIN_MESSAGE_LENGTH
+                              ? "border-amber-400 focus:border-amber-500 focus:shadow-amber"
+                              : messageLength >= MIN_MESSAGE_LENGTH &&
+                                  messageLength <= MAX_MESSAGE_LENGTH
+                                ? "border-blue-400 focus:border-blue-500 focus:shadow-blue"
+                                : "border-slate-300"
                       }`}
                       placeholder="Cuéntanos sobre tu necesidad... (Mínimo 20 caracteres)"
                     />
@@ -747,7 +747,7 @@ export const ContactForm = () => {
       {showPrivacyModal &&
         createPortal(
           <PrivacyModal onClose={() => setShowPrivacyModal(false)} />,
-          document.body
+          document.body,
         )}
     </>
   );
