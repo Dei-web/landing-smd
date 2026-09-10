@@ -398,7 +398,7 @@ export default function VehiclesCarouselOptimized({
                     return (
                       <div
                         key={`${vehicle.type}-${index}`}
-                        className="vehicle-card rounded-full flex-shrink-0"
+                        className="vehicle-card rounded-2xl flex-shrink-0"
                         style={{
                           width: `${cardWidth}px`,
                           height: `${cardHeight}px`,

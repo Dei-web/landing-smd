@@ -162,7 +162,7 @@ export default function AboutSection() {
   };
 
   return (
-    <section id="nosotros" className="relative py-24 md:py-32 bg-white">
+    <section id="nosotros" className="relative py-20 md:py-28 bg-white">
       <style>{`
       .gradient-text {
           background: linear-gradient(135deg, #1e293b 0%, #3b82f6 100%);

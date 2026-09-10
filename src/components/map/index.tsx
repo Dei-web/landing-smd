@@ -236,13 +236,54 @@ export default function MapUbication({ changeBackground = false }) {
   }, [locations]);
 
   return (
-    <section className={`bg-${changeBackground ? 'white' : 'slate-200'} py-40`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-800 mb-2">
+    <section className={`relative overflow-hidden ${changeBackground ? 'bg-white' : 'bg-slate-200'} py-20 md:py-28`}>
+      <style>{`
+        .map-section-gradient-top {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 140px;
+          background: linear-gradient(
+            to bottom,
+            rgba(148, 163, 184, 0.2) 0%,
+            rgba(148, 163, 184, 0.08) 40%,
+            transparent 100%
+          );
+          pointer-events: none;
+          z-index: 1;
+        }
+
+        .map-section-gradient-bottom {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 120px;
+          background: linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(15, 23, 42, 0.04) 50%,
+            rgba(15, 23, 42, 0.08) 100%
+          );
+          pointer-events: none;
+          z-index: 1;
+        }
+      `}</style>
+      <div className="map-section-gradient-top" />
+      <div className="map-section-gradient-bottom" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-12">
+          <div className="mb-4 md:mb-6 flex justify-center">
+            <span className="section-badge bg-blue-50 text-blue-700 px-4 md:px-6 py-2 md:py-3 rounded-full text-xs md:text-sm font-bold tracking-wide uppercase shadow-lg border border-blue-200">
+              Ubicación
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-4 leading-tight">
             Encuéntranos
           </h2>
-          <p className="text-gray-600">
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Visítanos en nuestras {locations.length}{" "}
             {locations.length === 1 ? "ubicación" : "ubicaciones"} o traza tu
             ruta desde donde estés

@@ -114,7 +114,7 @@ export default function MainClients() {
   };
 
   return (
-    <section className="relative py-16 md:py-24 bg-gradient-to-b from-slate-50 to-slate-100 overflow-hidden">
+    <section className="relative py-20 md:py-28 bg-gradient-to-b from-slate-50 to-slate-100 overflow-hidden">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap');
 
@@ -284,7 +284,7 @@ export default function MainClients() {
               Clientes
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-3">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-4 md:mb-6">
             Nuestros Clientes Principales
           </h2>
           <p className="text-lg text-slate-600">

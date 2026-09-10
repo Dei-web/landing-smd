@@ -37,12 +37,27 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-slate-900 text-white">
+    <footer className="bg-slate-900 text-white relative">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap');
 
         .footer-section {
           font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+        }
+
+        .footer-gradient-top {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 100px;
+          background: linear-gradient(
+            to bottom,
+            rgba(100, 116, 139, 0.08) 0%,
+            rgba(51, 65, 85, 0.04) 50%,
+            transparent 100%
+          );
+          pointer-events: none;
         }
 
         .footer-link {
@@ -97,6 +112,8 @@ export default function Footer() {
           transform: translateX(-50%) translateY(-4px);
         }
       `}</style>
+
+      <div className="footer-gradient-top" />
 
       <div className="footer-section">
         {/* Main Footer Content */}
@@ -317,7 +334,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-slate-800 mx-20">
+        <div className="border-t border-slate-800 mx-4 sm:mx-8 lg:mx-20">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-slate-500 text-sm">

@@ -416,9 +416,9 @@ export const ContactForm = () => {
           <div className="grid md:grid-cols-2 gap-16 lg:gap-20">
             {/* Left Column - Info */}
             <div>
-              <div className="mb-4 md:mb-6 flex justify-center">
+              <div className="mb-4 md:mb-6">
                 <span className="section-badge bg-blue-50 text-blue-700 px-4 md:px-6 py-2 md:py-3 rounded-full text-xs md:text-sm font-bold tracking-wide uppercase shadow-lg border border-blue-200">
-                  Contactanos
+                  Contáctanos
                 </span>
               </div>
 

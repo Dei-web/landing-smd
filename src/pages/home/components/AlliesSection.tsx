@@ -342,11 +342,16 @@ export default function AlliesSection() {
   ];
 
   return (
-    <section className="relative py-16 md:py-20 lg:py-28 bg-gradient-to-b from-slate-100 to-slate-200 overflow-hidden">
+    <section className="relative py-20 md:py-28 bg-gradient-to-b from-slate-100 to-slate-200 overflow-hidden">
       {/* Background decoration - Solo el gradiente central */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-blue-400/3 rounded-full blur-3xl" />
       </div>
+
+      {/* Bottom transition gradient to next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{
+        background: 'linear-gradient(to bottom, transparent 0%, rgba(148, 163, 184, 0.12) 40%, rgba(148, 163, 184, 0.2) 100%)'
+      }} />
 
       <style>{`
         @keyframes float {
@@ -535,7 +540,7 @@ export default function AlliesSection() {
               Nuestras Alianzas
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-4 md:mb-6 px-4">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-4 md:mb-6 px-4">
             Respaldo de Confianza
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed px-4">
