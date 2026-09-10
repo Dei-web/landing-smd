@@ -1,0 +1,518 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e6]:
+      - link [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img "Page logo" [ref=e8]
+        - generic [ref=e9]:
+          - heading "SMD Logística" [level=1] [ref=e10]
+          - paragraph [ref=e11]: Transport Solutions
+      - button "Toggle menu" [ref=e1230] [cursor=pointer]
+    - generic [ref=e1236]:
+      - link "Servicios" [ref=e1237] [cursor=pointer]:
+        - /url: /#servicios
+      - link "Nosotros" [ref=e1238] [cursor=pointer]:
+        - /url: /#nosotros
+      - link "Galería" [ref=e1239] [cursor=pointer]:
+        - /url: /#galeria
+      - link "Servicio de taller" [ref=e1240] [cursor=pointer]:
+        - /url: /taller
+      - link "Contacto" [ref=e1241] [cursor=pointer]:
+        - /url: /#contacto
+  - generic [ref=e27]:
+    - generic [ref=e28]:
+      - generic [ref=e29]: ✨ Excelencia en Transporte
+      - heading "Soluciones de Logística Premium" [level=1] [ref=e30]:
+        - text: Soluciones de
+        - generic [ref=e31]: Logística Premium
+      - paragraph [ref=e32]: Conectamos tu empresa con servicios de transporte de alta calidad. Seguridad, puntualidad y confort en cada trayecto.
+      - generic [ref=e33]:
+        - link "Solicitar Cotización" [ref=e34] [cursor=pointer]:
+          - /url: "#contacto"
+        - link "Ver Servicios" [ref=e39] [cursor=pointer]:
+          - /url: "#servicios"
+    - generic [ref=e41]:
+      - img "Bus SMD" [ref=e43]
+      - generic [ref=e50]:
+        - generic [ref=e51]: Calidad a tu alcance
+        - generic [ref=e52]: Calidad Garantizada ISO 9001
+  - generic [ref=e67]:
+    - generic [ref=e68]:
+      - generic [ref=e69]: Nuestros Valores
+      - heading "Compromiso con la Excelencia" [level=2] [ref=e70]
+      - paragraph [ref=e71]: Principios fundamentales que guían cada aspecto de nuestro servicio
+    - generic [ref=e72]:
+      - generic [ref=e73]:
+        - generic:
+          - heading "Seguridad" [level=3] [ref=e80]
+          - paragraph [ref=e81]: Cumplimiento estricto de normativas y protocolos de seguridad en cada servicio
+      - generic [ref=e82]:
+        - generic:
+          - heading "Puntualidad" [level=3] [ref=e89]
+          - paragraph [ref=e90]: Compromiso con los tiempos acordados y eficiencia en cada operación
+      - generic [ref=e91]:
+        - generic:
+          - heading "Calidad" [level=3] [ref=e98]
+          - paragraph [ref=e99]: Estándares superiores en servicio, mantenimiento y atención al cliente
+      - generic [ref=e100]:
+        - generic:
+          - heading "Equipo Experto" [level=3] [ref=e109]
+          - paragraph [ref=e110]: Personal altamente capacitado y certificado en transporte profesional
+  - generic [ref=e112]:
+    - generic [ref=e114]:
+      - generic [ref=e115]:
+        - img "Logística de Eventos" [ref=e116]
+        - paragraph [ref=e119]: Logística de Eventos
+      - generic [ref=e120]:
+        - img "Transporte Empresarial" [ref=e121]
+        - paragraph [ref=e124]: Transporte Empresarial
+      - generic [ref=e125]:
+        - img "Transporte Escolar" [ref=e126]
+        - paragraph [ref=e129]: Transporte Escolar
+      - generic [ref=e130]:
+        - img "Transporte Médico y de Salud" [ref=e131]
+        - paragraph [ref=e134]: Transporte Médico y de Salud
+      - generic [ref=e135]:
+        - img "Transporte Ejecutivo" [ref=e136]
+        - paragraph [ref=e139]: Transporte Ejecutivo
+      - generic [ref=e140]:
+        - img "Transporte Turismo" [ref=e141]
+        - paragraph [ref=e144]: Transporte Turismo
+      - generic [ref=e145]:
+        - img "Logística de Eventos" [ref=e146]
+        - paragraph [ref=e149]: Logística de Eventos
+      - generic [ref=e150]:
+        - img "Transporte Empresarial" [ref=e151]
+        - paragraph [ref=e154]: Transporte Empresarial
+      - generic [ref=e155]:
+        - img "Transporte Escolar" [ref=e156]
+        - paragraph [ref=e159]: Transporte Escolar
+      - generic [ref=e160]:
+        - img "Transporte Médico y de Salud" [ref=e161]
+        - paragraph [ref=e164]: Transporte Médico y de Salud
+      - generic [ref=e165]:
+        - img "Transporte Ejecutivo" [ref=e166]
+        - paragraph [ref=e169]: Transporte Ejecutivo
+      - generic [ref=e170]:
+        - img "Transporte Turismo" [ref=e171]
+        - paragraph [ref=e174]: Transporte Turismo
+      - generic [ref=e175]:
+        - img "Logística de Eventos" [ref=e176]
+        - paragraph [ref=e179]: Logística de Eventos
+      - generic [ref=e180]:
+        - img "Transporte Empresarial" [ref=e181]
+        - paragraph [ref=e184]: Transporte Empresarial
+      - generic [ref=e185]:
+        - img "Transporte Escolar" [ref=e186]
+        - paragraph [ref=e189]: Transporte Escolar
+      - generic [ref=e190]:
+        - img "Transporte Médico y de Salud" [ref=e191]
+        - paragraph [ref=e194]: Transporte Médico y de Salud
+      - generic [ref=e195]:
+        - img "Transporte Ejecutivo" [ref=e196]
+        - paragraph [ref=e199]: Transporte Ejecutivo
+      - generic [ref=e200]:
+        - img "Transporte Turismo" [ref=e201]
+        - paragraph [ref=e204]: Transporte Turismo
+    - generic [ref=e207]:
+      - generic [ref=e208]:
+        - generic [ref=e209]: Servicio Destacado
+        - heading "Transporte Escolar" [level=1] [ref=e1311]
+        - generic [ref=e212]: Servicio Premium
+        - generic [ref=e216]:
+          - paragraph [ref=e217]: Servicio seguro y confiable para estudiantes, directivos y padres de famil
+          - generic [ref=e219]:
+            - generic [ref=e220]: Personal capacitado
+            - generic [ref=e223]: Flota moderna
+            - generic [ref=e226]: Seguridad certificada
+      - generic [ref=e229]:
+        - button "Anterior" [ref=e230] [cursor=pointer]
+        - generic [ref=e233]:
+          - button "Ir al servicio 1" [ref=e234] [cursor=pointer]
+          - button "Ir al servicio 2" [ref=e235] [cursor=pointer]
+          - button "Ir al servicio 3" [ref=e236] [cursor=pointer]
+          - button "Ir al servicio 4" [ref=e237] [cursor=pointer]
+          - button "Ir al servicio 5" [ref=e238] [cursor=pointer]
+          - button "Ir al servicio 6" [ref=e239] [cursor=pointer]
+        - button "Siguiente" [ref=e240] [cursor=pointer]
+      - generic [ref=e243]: 03 / 06
+  - generic [ref=e247]:
+    - generic [ref=e248]: Quienes Somos
+    - generic [ref=e251]:
+      - heading "Líderes en Logística y Transporte" [level=2] [ref=e252]
+      - generic [ref=e253]:
+        - paragraph [ref=e254]: Somos una compañía debidamente habilitada con todas las exigencias legales para la prestación del servicio de logística y transporte de personal.
+        - paragraph [ref=e255]: Conformado con un excelente equipo humano, su profesionalismo y la capacidad de servicios nos permite brindar un excelente servicio de calidad.
+      - generic [ref=e256]:
+        - heading "Nuestra Visión 2030" [level=3] [ref=e257]
+        - paragraph [ref=e258]: Ser una empresa reconocida a nivel nacional en la modalidad de logística y transporte de pasajeros, ofreciendo un servicio seguro, eficiente y con tecnología avanzada.
+      - generic [ref=e259]:
+        - generic [ref=e260] [cursor=pointer]: Certificados
+        - generic [ref=e262] [cursor=pointer]: Innovación
+        - generic [ref=e264] [cursor=pointer]: Equipo Experto
+      - generic [ref=e1261]:
+        - button [ref=e1262] [cursor=pointer]
+        - button [ref=e1267] [cursor=pointer]
+        - button [ref=e1271] [cursor=pointer]
+        - button [ref=e1275] [cursor=pointer]
+  - generic [ref=e291]:
+    - generic [ref=e292]:
+      - generic [ref=e293]: Nuestra Flota
+      - heading "Vehículos Modernos para Cada Necesidad" [level=2] [ref=e295]: Vehículos Modernospara Cada Necesidad
+      - paragraph [ref=e296]: Flota diversa y meticulosamente mantenida, diseñada para ofrecer seguridad, confort y profesionalismo en cada viaje
+    - generic [ref=e297]:
+      - generic [ref=e299]:
+        - button "Anterior" [ref=e300] [cursor=pointer]
+        - button "Siguiente" [ref=e303] [cursor=pointer]
+        - generic [ref=e307]:
+          - generic [ref=e309] [cursor=pointer]:
+            - generic [ref=e316]: ejecutivo
+            - generic [ref=e318]:
+              - heading "Camioneta Combinada" [level=3] [ref=e319]
+              - generic [ref=e320]: "4"
+          - generic [ref=e328] [cursor=pointer]:
+            - generic [ref=e335]: ejecutivo
+            - generic [ref=e337]:
+              - heading "Camioneta DC" [level=3] [ref=e338]
+              - generic [ref=e339]: "4"
+          - generic [ref=e347] [cursor=pointer]:
+            - generic [ref=e354]: ejecutivo
+            - generic [ref=e356]:
+              - heading "Campera" [level=3] [ref=e357]
+              - generic [ref=e358]: "4"
+          - generic [ref=e366] [cursor=pointer]:
+            - generic [ref=e373]: mediano
+            - generic [ref=e375]:
+              - heading "Van" [level=3] [ref=e376]
+              - generic [ref=e377]: "9"
+          - generic [ref=e385] [cursor=pointer]:
+            - generic [ref=e392]: mediano
+            - generic [ref=e394]:
+              - heading "Microbus" [level=3] [ref=e395]
+              - generic [ref=e396]: "19"
+          - generic [ref=e404] [cursor=pointer]:
+            - generic [ref=e411]: grande
+            - generic [ref=e413]:
+              - heading "Buseta" [level=3] [ref=e414]
+              - generic [ref=e415]: "30"
+          - generic [ref=e423] [cursor=pointer]:
+            - generic [ref=e430]: grande
+            - generic [ref=e432]:
+              - heading "Bus" [level=3] [ref=e433]
+              - generic [ref=e434]: "38"
+          - generic [ref=e442] [cursor=pointer]:
+            - generic [ref=e449]: ejecutivo
+            - generic [ref=e451]:
+              - heading "Camioneta Combinada" [level=3] [ref=e452]
+              - generic [ref=e453]: "4"
+          - generic [ref=e461] [cursor=pointer]:
+            - generic [ref=e468]: ejecutivo
+            - generic [ref=e470]:
+              - heading "Camioneta DC" [level=3] [ref=e471]
+              - generic [ref=e472]: "4"
+          - generic [ref=e480] [cursor=pointer]:
+            - generic [ref=e487]: ejecutivo
+            - generic [ref=e489]:
+              - heading "Campera" [level=3] [ref=e490]
+              - generic [ref=e491]: "4"
+          - generic [ref=e499] [cursor=pointer]:
+            - generic [ref=e506]: mediano
+            - generic [ref=e508]:
+              - heading "Van" [level=3] [ref=e509]
+              - generic [ref=e510]: "9"
+          - generic [ref=e518] [cursor=pointer]:
+            - generic [ref=e525]: mediano
+            - generic [ref=e527]:
+              - heading "Microbus" [level=3] [ref=e528]
+              - generic [ref=e529]: "19"
+          - generic [ref=e537] [cursor=pointer]:
+            - generic [ref=e544]: grande
+            - generic [ref=e546]:
+              - heading "Buseta" [level=3] [ref=e547]
+              - generic [ref=e548]: "30"
+          - generic [ref=e556] [cursor=pointer]:
+            - generic [ref=e563]: grande
+            - generic [ref=e565]:
+              - heading "Bus" [level=3] [ref=e566]
+              - generic [ref=e567]: "38"
+          - generic [ref=e575] [cursor=pointer]:
+            - generic [ref=e582]: ejecutivo
+            - generic [ref=e584]:
+              - heading "Camioneta Combinada" [level=3] [ref=e585]
+              - generic [ref=e586]: "4"
+          - generic [ref=e594] [cursor=pointer]:
+            - generic [ref=e601]: ejecutivo
+            - generic [ref=e603]:
+              - heading "Camioneta DC" [level=3] [ref=e604]
+              - generic [ref=e605]: "4"
+          - generic [ref=e613] [cursor=pointer]:
+            - generic [ref=e620]: ejecutivo
+            - generic [ref=e622]:
+              - heading "Campera" [level=3] [ref=e623]
+              - generic [ref=e624]: "4"
+          - generic [ref=e632] [cursor=pointer]:
+            - generic [ref=e639]: mediano
+            - generic [ref=e641]:
+              - heading "Van" [level=3] [ref=e642]
+              - generic [ref=e643]: "9"
+          - generic [ref=e651] [cursor=pointer]:
+            - generic [ref=e658]: mediano
+            - generic [ref=e660]:
+              - heading "Microbus" [level=3] [ref=e661]
+              - generic [ref=e662]: "19"
+          - generic [ref=e670] [cursor=pointer]:
+            - generic [ref=e677]: grande
+            - generic [ref=e679]:
+              - heading "Buseta" [level=3] [ref=e680]
+              - generic [ref=e681]: "30"
+          - generic [ref=e689] [cursor=pointer]:
+            - generic [ref=e696]: grande
+            - generic [ref=e698]:
+              - heading "Bus" [level=3] [ref=e699]
+              - generic [ref=e700]: "38"
+          - generic [ref=e708] [cursor=pointer]:
+            - generic [ref=e715]: ejecutivo
+            - generic [ref=e717]:
+              - heading "Camioneta Combinada" [level=3] [ref=e718]
+              - generic [ref=e719]: "4"
+          - generic [ref=e727] [cursor=pointer]:
+            - generic [ref=e734]: ejecutivo
+            - generic [ref=e736]:
+              - heading "Camioneta DC" [level=3] [ref=e737]
+              - generic [ref=e738]: "4"
+          - generic [ref=e746] [cursor=pointer]:
+            - generic [ref=e753]: ejecutivo
+            - generic [ref=e755]:
+              - heading "Campera" [level=3] [ref=e756]
+              - generic [ref=e757]: "4"
+          - generic [ref=e765] [cursor=pointer]:
+            - generic [ref=e772]: mediano
+            - generic [ref=e774]:
+              - heading "Van" [level=3] [ref=e775]
+              - generic [ref=e776]: "9"
+          - generic [ref=e784] [cursor=pointer]:
+            - generic [ref=e791]: mediano
+            - generic [ref=e793]:
+              - heading "Microbus" [level=3] [ref=e794]
+              - generic [ref=e795]: "19"
+          - generic [ref=e803] [cursor=pointer]:
+            - generic [ref=e810]: grande
+            - generic [ref=e812]:
+              - heading "Buseta" [level=3] [ref=e813]
+              - generic [ref=e814]: "30"
+          - generic [ref=e822] [cursor=pointer]:
+            - generic [ref=e829]: grande
+            - generic [ref=e831]:
+              - heading "Bus" [level=3] [ref=e832]
+              - generic [ref=e833]: "38"
+      - generic [ref=e840]:
+        - button "Ir a Camioneta Combinada" [ref=e841] [cursor=pointer]
+        - button "Ir a Camioneta DC" [ref=e843] [cursor=pointer]
+        - button "Ir a Campera" [ref=e845] [cursor=pointer]
+        - button "Ir a Van" [ref=e847] [cursor=pointer]
+        - button "Ir a Microbus" [ref=e849] [cursor=pointer]
+        - button "Ir a Buseta" [ref=e851] [cursor=pointer]
+        - button "Ir a Bus" [ref=e853] [cursor=pointer]
+    - generic [ref=e856]:
+      - generic [ref=e860]:
+        - generic [ref=e861]: Reproducción Automática
+        - generic [ref=e862]: Navegando automáticamente
+      - button "Pausar" [ref=e863] [cursor=pointer]
+  - generic [ref=e888]:
+    - generic [ref=e889]:
+      - generic [ref=e890]: Servicios Adicionales
+      - heading "Taller Especializado" [level=2] [ref=e892]
+      - paragraph [ref=e893]: Mantenemos tu flota en óptimas condiciones con nuestro servicio de taller profesional. Experiencia, calidad y confianza en cada reparación.
+    - generic [ref=e1279]:
+      - button [ref=e1280] [cursor=pointer]
+      - button [ref=e1284] [cursor=pointer]
+      - button [ref=e1301] [cursor=pointer]
+      - button [ref=e1306] [cursor=pointer]
+    - generic [ref=e954]:
+      - heading "¿Necesitas servicio de taller?" [level=3] [ref=e955]
+      - paragraph [ref=e956]: Descubre todos nuestros servicios especializados de mantenimiento y reparación. Tu flota merece el mejor cuidado.
+      - link "Ver Servicios de Taller" [ref=e957] [cursor=pointer]:
+        - /url: /taller
+  - generic [ref=e964]:
+    - generic [ref=e965]:
+      - generic [ref=e966]: Contáctanos
+      - heading "Solicita tu Cotización" [level=2] [ref=e967]: Solicita tuCotización
+      - paragraph [ref=e968]: Estamos listos para brindarte el mejor servicio de transporte. Completa el formulario y nos pondremos en contacto contigo.
+      - generic [ref=e969]:
+        - generic [ref=e974]:
+          - heading "Teléfono" [level=4] [ref=e975]
+          - paragraph [ref=e976]: +57 300 646 0095
+        - generic [ref=e982]:
+          - heading "Email" [level=4] [ref=e983]
+          - paragraph [ref=e984]: smdinversionessas@gmail.com
+        - generic [ref=e990]:
+          - heading "Ubicaciones" [level=4] [ref=e991]
+          - paragraph [ref=e992]: "Cra. 41 #86 No 45, Nte. Centro Historico, BARRANQUILLA- COLOMBIA, Barranquilla, Atlántico"
+    - generic [ref=e993]:
+      - generic [ref=e995]:
+        - generic [ref=e996]:
+          - generic [ref=e997]: Nombre Completo
+          - textbox "Juan Pérez" [ref=e998]
+        - generic [ref=e999]:
+          - generic [ref=e1000]: Email
+          - textbox "correo@ejemplo.com" [ref=e1001]
+        - generic [ref=e1002]:
+          - generic [ref=e1003]: Teléfono
+          - textbox "+57 300 123 4567" [ref=e1004]
+        - generic [ref=e1005]:
+          - generic [ref=e1006]: Servicio de Interés
+          - combobox [ref=e1007]:
+            - option "Seleccione un servicio" [selected]
+            - option "Otro"
+            - option "Logística de Eventos"
+            - option "Transporte Empresarial"
+            - option "Transporte Escolar"
+            - option "Transporte Ejecutivo"
+            - option "Transporte Turismo"
+        - generic [ref=e1008]:
+          - generic [ref=e1009]:
+            - generic [ref=e1010]: Mensaje
+            - generic [ref=e1011]: 0/500
+          - textbox "Cuéntanos sobre tu necesidad... (Mínimo 20 caracteres)" [ref=e1012]
+        - paragraph [ref=e1017]:
+          - text: Al enviar este formulario, aceptas nuestra
+          - button "Política de Privacidad y Tratamiento de Datos" [ref=e1018] [cursor=pointer]
+        - button "Enviar Solicitud" [ref=e1019] [cursor=pointer]
+      - paragraph [ref=e1024]: Responderemos tu solicitud en menos de 24 horas
+  - generic [ref=e1027]:
+    - generic [ref=e1028]:
+      - generic [ref=e1029]: Clientes
+      - heading "Nuestros Clientes Principales" [level=2] [ref=e1031]
+      - paragraph [ref=e1032]: Empresas que confían en nosotros
+    - generic [ref=e1033]:
+      - generic [ref=e1034]:
+        - generic [ref=e1036] [cursor=pointer]:
+          - img "Inteligencia Urbana S.A.S" [ref=e1038]
+          - paragraph [ref=e1039]: Inteligencia Urbana S.A.S
+        - generic [ref=e1041] [cursor=pointer]:
+          - img "TransPlus" [ref=e1043]
+          - paragraph [ref=e1044]: TransPlus
+        - generic [ref=e1046] [cursor=pointer]:
+          - img "Integral de Mantenimiento y Seguridad" [ref=e1048]
+          - paragraph [ref=e1049]: Integral de Mantenimiento y Seguridad
+        - generic [ref=e1051] [cursor=pointer]:
+          - img "Integrales de Seguridad Ltda" [ref=e1053]
+          - paragraph [ref=e1054]: Integrales de Seguridad Ltda
+      - button "Anterior" [ref=e1055] [cursor=pointer]
+      - button "Siguiente" [ref=e1058] [cursor=pointer]
+    - generic [ref=e1061]:
+      - button "Ir a Integrales de Seguridad Ltda" [ref=e1062] [cursor=pointer]
+      - button "Ir a Integral de Mantenimiento y Seguridad" [ref=e1064] [cursor=pointer]
+      - button "Ir a TransPlus" [ref=e1066] [cursor=pointer]
+      - button "Ir a Inteligencia Urbana S.A.S" [ref=e1068] [cursor=pointer]
+  - generic [ref=e1072]:
+    - generic [ref=e1073]:
+      - generic [ref=e1074]: Nuestras Alianzas
+      - heading "Respaldo de Confianza" [level=2] [ref=e1076]
+      - paragraph [ref=e1077]: En SMD Logística y Transporte S.A.S. entendemos que la fortaleza de nuestro servicio se basa en el trabajo colaborativo. Por ello, hemos establecido alianzas con compañías líderes en el sector automotriz, lo que nos permite brindar un respaldo técnico completo y confiable a todos nuestros clientes.
+    - generic [ref=e1078]:
+      - generic [ref=e1079]: Respaldo
+      - generic [ref=e1089]: Aseguradoras
+      - generic [ref=e1098]: Proveedores
+    - generic [ref=e1111]:
+      - heading "¿Listo para trabajar con nosotros?" [level=3] [ref=e1112]
+      - paragraph [ref=e1113]: Únete a las empresas que confían en nuestro respaldo técnico y red de alianzas estratégicas.
+      - link "Contáctanos" [ref=e1114] [cursor=pointer]:
+        - /url: "#contacto"
+  - generic [ref=e1120]:
+    - generic [ref=e1121]:
+      - generic [ref=e1122]: Ubicación
+      - heading "Encuéntranos" [level=2] [ref=e1124]
+      - paragraph [ref=e1125]: Visítanos en nuestras 1 ubicación o traza tu ruta desde donde estés
+    - generic [ref=e1126]:
+      - button "Trazar ruta desde mi ubicación" [ref=e1127] [cursor=pointer]
+      - button "Ver ubicaciones (1)" [ref=e1133] [cursor=pointer]
+    - generic [ref=e1139]:
+      - button "Marker" [ref=e1140] [cursor=pointer]
+      - generic:
+        - generic [ref=e1141]:
+          - button "Zoom in" [ref=e1142] [cursor=pointer]: +
+          - button "Zoom out" [ref=e1143] [cursor=pointer]: −
+        - generic [ref=e1144]:
+          - link "Leaflet" [ref=e1145] [cursor=pointer]:
+            - /url: https://leafletjs.com
+          - text: "| ©"
+          - link "OpenStreetMap" [ref=e1150] [cursor=pointer]:
+            - /url: https://www.openstreetmap.org/copyright
+          - text: contributors
+  - contentinfo [ref=e1151]:
+    - generic [ref=e1152]:
+      - generic [ref=e1154]:
+        - generic [ref=e1155]:
+          - link [ref=e1156] [cursor=pointer]:
+            - /url: /
+            - img "Logo" [ref=e1159]
+            - generic [ref=e1160]:
+              - heading "SMD Logística" [level=3] [ref=e1161]
+              - paragraph [ref=e1162]: Transport Solutions
+          - paragraph [ref=e1163]: Soluciones de transporte con excelencia y compromiso desde 2008.
+          - generic [ref=e1164]:
+            - link "TikTok" [ref=e1165] [cursor=pointer]:
+              - /url: "#"
+              - generic: Síguenos en TikTok
+            - link "Instagram" [ref=e1168] [cursor=pointer]:
+              - /url: "#"
+              - generic: Síguenos en Instagram
+        - generic [ref=e1171]:
+          - heading "Servicios" [level=4] [ref=e1172]
+          - list [ref=e1173]:
+            - listitem [ref=e1174]:
+              - link "Logística de Eventos" [ref=e1175] [cursor=pointer]:
+                - /url: /#servicios
+            - listitem [ref=e1176]:
+              - link "Transporte Empresarial" [ref=e1177] [cursor=pointer]:
+                - /url: /#servicios
+            - listitem [ref=e1178]:
+              - link "Transporte Escolar" [ref=e1179] [cursor=pointer]:
+                - /url: /#servicios
+            - listitem [ref=e1180]:
+              - link "Transporte Ejecutivo" [ref=e1181] [cursor=pointer]:
+                - /url: /#servicios
+            - listitem [ref=e1182]:
+              - link "Transporte Turismo" [ref=e1183] [cursor=pointer]:
+                - /url: /#servicios
+        - generic [ref=e1184]:
+          - heading "Empresa" [level=4] [ref=e1185]
+          - list [ref=e1186]:
+            - listitem [ref=e1187]:
+              - link "Nosotros" [ref=e1188] [cursor=pointer]:
+                - /url: /#nosotros
+            - listitem [ref=e1189]:
+              - link "Nuestra Flota" [ref=e1190] [cursor=pointer]:
+                - /url: /#galeria
+            - listitem [ref=e1191]:
+              - link "Servicios" [ref=e1192] [cursor=pointer]:
+                - /url: /#servicios
+            - listitem [ref=e1193]:
+              - link "Servicio de taller" [ref=e1194] [cursor=pointer]:
+                - /url: /taller
+            - listitem [ref=e1195]:
+              - link "Contacto" [ref=e1196] [cursor=pointer]:
+                - /url: /#contacto
+        - generic [ref=e1197]:
+          - heading "Contacto" [level=4] [ref=e1198]
+          - list [ref=e1199]:
+            - listitem [ref=e1200]:
+              - link "+57 300 646 0095" [ref=e1204] [cursor=pointer]:
+                - /url: tel:+573006460095
+            - listitem [ref=e1205]:
+              - link "smdinversionessas@gmail.com" [ref=e1210] [cursor=pointer]:
+                - /url: mailto:smdinversionessas@gmail.com
+            - listitem [ref=e1211]:
+              - paragraph [ref=e1216]: "Cra. 41 #86 No 45, Nte. Centro Historico, BARRANQUILLA- COLOMBIA, Barranquilla, Atlántico"
+      - generic [ref=e1219]:
+        - paragraph [ref=e1220]: © 2026 SMD Logística y Transporte S.A.S. Todos los derechos reservados.
+        - generic [ref=e1221]:
+          - generic [ref=e1222]: "NIT: 900.527.591-9"
+          - link "Política de Privacidad" [ref=e1223] [cursor=pointer]:
+            - /url: "#"
+          - link "Términos y Condiciones" [ref=e1224] [cursor=pointer]:
+            - /url: "#"
+  - link "Chatear por WhatsApp" [ref=e1225] [cursor=pointer]:
+    - /url: https://wa.me/573006460095?text=Hola%20SMD!%20Me%20gustaría%20obtener%20más%20información
+    - generic: Escríbenos por WhatsApp

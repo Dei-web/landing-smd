@@ -8,6 +8,7 @@ import {
   Activity,
   Settings,
 } from "lucide-react";
+import "../../../../public/styles/pages/workshop/components/Services.css";
 
 interface Service {
   title: string;
@@ -81,9 +82,20 @@ const Services = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [cardWidth, setCardWidth] = useState(
+    typeof window !== 'undefined' && window.innerWidth < 640 ? 296 : 350
+  );
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  const CARD_WIDTH = 350;
+  useEffect(() => {
+    const handleResize = () => {
+      setCardWidth(window.innerWidth < 640 ? 296 : 350);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const CARD_WIDTH = cardWidth;
   const TOTAL_WIDTH = servicesData.length * CARD_WIDTH;
 
   // Calcular currentIndex directamente sin estado
@@ -189,15 +201,15 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="relative overflow-hidden pb-14 pt-4">
+          <div className="relative overflow-hidden pb-14 pt-4 px-2 sm:px-0">
             <div
-              className="absolute left-0 top-0 bottom-0 w-32 md:w-48 z-10 pointer-events-none"
+              className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 md:w-48 z-10 pointer-events-none"
               style={{
                 background: "linear-gradient(to right, white, transparent)",
               }}
             />
             <div
-              className="absolute right-0 top-0 bottom-0 w-32 md:w-48 z-10 pointer-events-none"
+              className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 md:w-48 z-10 pointer-events-none"
               style={{
                 background: "linear-gradient(to left, white, transparent)",
               }}
@@ -205,7 +217,7 @@ const Services = () => {
 
             <div
               ref={carouselRef}
-              className="relative flex gap-8 transition-transform duration-100"
+              className="relative flex gap-4 sm:gap-8 transition-transform duration-100"
               style={{
                 transform: `translateX(${offset}px)`,
                 width: "fit-content",
@@ -223,7 +235,7 @@ const Services = () => {
                 (service, index) => (
                   <div
                     key={index}
-                    className="service-card flex-shrink-0 w-80"
+                    className="service-card flex-shrink-0 w-[280px] sm:w-80"
                     onMouseEnter={() => !isDragging && setIsPaused(true)}
                     onMouseLeave={() => !isDragging && setIsPaused(false)}
                   >

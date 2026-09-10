@@ -117,9 +117,9 @@ export default function MapUbication({ changeBackground = false }) {
       const mapInstance = LeafletLib.map("map").setView(center, 13);
 
       LeafletLib.tileLayer(
-        "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
         {
-          attribution: "<a>Ubicación directa</a>",
+          attribution: "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors",
         },
       ).addTo(mapInstance);
 

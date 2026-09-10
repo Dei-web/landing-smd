@@ -131,7 +131,7 @@ export default function ServicesGallery({
   return (
     <section
       id="servicios"
-      className="relative py-20 min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 overflow-hidden"
+      className="relative py-20 min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 overflow-x-hidden"
     >
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@700;900&family=Space+Mono:wght@400;700&display=swap');
@@ -301,7 +301,7 @@ export default function ServicesGallery({
         /* Transición fluida de altura */
         .content-container {
           transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-          overflow: hidden;
+          overflow: visible;
         }
 
         .description-box {
@@ -359,26 +359,26 @@ export default function ServicesGallery({
       </div>
 
       {/* Contenido principal */}
-      <div className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 min-h-screen flex items-start sm:items-center justify-center px-4 sm:px-6 lg:px-8 py-8 sm:py-0">
         <div className="max-w-5xl w-full">
           {/* Título con efecto de escritura */}
-          <div className="text-center mb-12">
-            <div className="mb-8">
-              <span className="inline-block bg-blue-500/20 backdrop-blur-sm text-blue-300 px-6 py-3 rounded-full text-sm font-bold tracking-widest uppercase border border-blue-400/30 shadow-lg">
+          <div className="text-center mb-6 md:mb-12">
+            <div className="mb-4 md:mb-8">
+              <span className="inline-block bg-blue-500/20 backdrop-blur-sm text-blue-300 px-3 py-1.5 sm:px-6 sm:py-3 rounded-full text-xs sm:text-sm font-bold tracking-widest uppercase border border-blue-400/30 shadow-lg">
                 Servicio Destacado
               </span>
             </div>
 
             <h1
               key={currentService.title}
-              className="service-title text-7xl md:text-9xl font-black text-white mb-8 leading-none"
+              className="service-title text-3xl sm:text-6xl md:text-9xl font-black text-white mb-4 md:mb-8 leading-tight break-words"
             >
               {currentService.title}
             </h1>
 
-            <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20 mb-12">
-              <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-white text-sm font-bold tracking-wide uppercase">
+            <div className="inline-flex items-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-md px-3 py-1.5 sm:px-6 sm:py-3 rounded-full border border-white/20 mb-6 md:mb-12">
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="text-white text-xs sm:text-sm font-bold tracking-wide uppercase">
                 Servicio Premium
               </span>
             </div>
@@ -388,8 +388,8 @@ export default function ServicesGallery({
               ref={contentRef}
               className="content-container max-w-3xl mx-auto rounded-3xl shadow-2xl"
             >
-              <div className="description-box bg-slate-900/50 backdrop-blur-md border border-white/10 rounded-3xl p-8 md:p-12">
-                <p className="service-description text-white text-lg md:text-xl leading-relaxed text-left">
+              <div className="description-box bg-slate-900/95 md:bg-slate-900/50 backdrop-blur-md border border-white/10 rounded-3xl p-6 md:p-12">
+                <p className="service-description text-white text-base md:text-xl leading-relaxed text-left">
                   {displayedText}
                   {isTyping && <span className="typewriter-cursor" />}
                 </p>
@@ -427,16 +427,17 @@ export default function ServicesGallery({
           </div>
 
           {/* Navegación */}
-          <div className="flex items-center justify-center gap-8 mt-16">
+          <div className="flex items-center justify-center gap-4 sm:gap-8 mt-8 sm:mt-16">
             {/* Flecha izquierda */}
             <button
               onClick={() => handleNavigate("prev")}
-              className="nav-arrow w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:text-blue-300 shadow-lg"
+              className="nav-arrow w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:text-blue-300 shadow-lg"
               aria-label="Anterior"
             >
               <svg
-                width="24"
-                height="24"
+                width="20"
+                height="20"
+                className="sm:w-6 sm:h-6"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -449,15 +450,15 @@ export default function ServicesGallery({
             </button>
 
             {/* Indicadores */}
-            <div className="flex gap-3">
+            <div className="flex gap-2 sm:gap-3">
               {services.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setCurrentIndex(idx)}
-                  className={`nav-dot h-3 rounded-full transition-all ${
+                  className={`nav-dot h-2.5 sm:h-3 rounded-full transition-all ${
                     idx === currentIndex
-                      ? "w-12 bg-blue-500 shadow-lg shadow-blue-500/50"
-                      : "w-3 bg-white/30 hover:bg-white/50"
+                      ? "w-8 sm:w-12 bg-blue-500 shadow-lg shadow-blue-500/50"
+                      : "w-2.5 sm:w-3 bg-white/50 hover:bg-white/70"
                   }`}
                   aria-label={`Ir al servicio ${idx + 1}`}
                 />
@@ -467,12 +468,13 @@ export default function ServicesGallery({
             {/* Flecha derecha */}
             <button
               onClick={() => handleNavigate("next")}
-              className="nav-arrow w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:text-blue-300 shadow-lg"
+              className="nav-arrow w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:text-blue-300 shadow-lg"
               aria-label="Siguiente"
             >
               <svg
-                width="24"
-                height="24"
+                width="20"
+                height="20"
+                className="sm:w-6 sm:h-6"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -486,8 +488,8 @@ export default function ServicesGallery({
           </div>
 
           {/* Contador */}
-          <div className="text-center mt-8">
-            <span className="text-white/40 text-sm font-mono tracking-wider">
+          <div className="text-center mt-4 sm:mt-8">
+            <span className="text-white/70 text-xs sm:text-sm font-mono tracking-wider">
               {String(currentIndex + 1).padStart(2, "0")} /{" "}
               {String(services.length).padStart(2, "0")}
             </span>

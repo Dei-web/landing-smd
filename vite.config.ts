@@ -6,6 +6,10 @@ export default defineConfig({
 
   base: './',
 
+  server: {
+    allowedHosts: true,
+  },
+
   build: {
     target: 'es2018',
     minify: 'esbuild',
