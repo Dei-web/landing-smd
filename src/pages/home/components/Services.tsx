@@ -298,21 +298,60 @@ export default function ServicesGallery({
           );
         }
 
-        /* Transición fluida de altura */
+        /* Transición fluida de altura - ALTURA FIJA para evitar salto de página */
         .content-container {
-          transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
           overflow: visible;
         }
 
         .description-box {
-          transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+          /* Reserva altura fija: descripción (3 líneas) + features siempre en layout */
+          min-height: 380px;
+        }
+
+        @media (min-width: 768px) {
+          .description-box {
+            min-height: 340px;
+          }
+        }
+
+        .service-title-fixed {
+          /* Reserva 2 líneas para títulos largos como "Transporte Médico y de Salud" */
+          min-height: 84px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        @media (min-width: 640px) {
+          .service-title-fixed {
+            min-height: 96px;
+          }
+        }
+
+        @media (min-width: 768px) {
+          .service-title-fixed {
+            min-height: 180px;
+          }
+        }
+
+        .service-description-fixed {
+          /* Reserva ~3 líneas de descripción durante el typewriter */
+          min-height: 84px;
+        }
+
+        @media (min-width: 768px) {
+          .service-description-fixed {
+            min-height: 90px;
+          }
         }
 
         .features-container {
-          transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                      opacity 0.4s ease-in-out,
-                      margin-top 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+          /* Altura siempre reservada: solo cambia opacidad/visibilidad, no layout */
+          max-height: 500px;
+          margin-top: 2rem;
           overflow: hidden;
+          transition: opacity 0.4s ease-in-out, visibility 0.4s;
         }
       `}</style>
 
@@ -371,7 +410,7 @@ export default function ServicesGallery({
 
             <h1
               key={currentService.title}
-              className="service-title text-3xl sm:text-6xl md:text-9xl font-black text-white mb-4 md:mb-8 leading-tight break-words"
+              className="service-title service-title-fixed text-3xl sm:text-6xl md:text-9xl font-black text-white mb-4 md:mb-8 leading-tight break-words"
             >
               {currentService.title}
             </h1>
@@ -389,18 +428,17 @@ export default function ServicesGallery({
               className="content-container max-w-3xl mx-auto rounded-3xl shadow-2xl"
             >
               <div className="description-box bg-slate-900/95 md:bg-slate-900/50 backdrop-blur-md border border-white/10 rounded-3xl p-6 md:p-12">
-                <p className="service-description text-white text-base md:text-xl leading-relaxed text-left">
+                <p className="service-description service-description-fixed text-white text-base md:text-xl leading-relaxed text-left">
                   {displayedText}
                   {isTyping && <span className="typewriter-cursor" />}
                 </p>
 
-                {/* Features con transición fluida */}
+                {/* Features con altura fija reservada (solo fade, sin colapso) */}
                 <div
                   className="features-container"
                   style={{
-                    maxHeight: isTyping ? "0px" : "500px",
                     opacity: isTyping ? 0 : 1,
-                    marginTop: isTyping ? "0px" : "2rem",
+                    visibility: isTyping ? "hidden" : "visible",
                   }}
                 >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
